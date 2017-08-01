@@ -1,0 +1,115 @@
+- var pageTitle = 'paginas'
+
+doctype
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    title #{pageTitle}
+    link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css")
+    link(rel="stylesheet" href="../public/css/style.css")
+  body
+    div.right-align.iconos
+      i.circle.fa.fa-twitter.fa-lg.redes(aria-hidden="true")
+      i.circle.fa.fa-facebook.fa-lg.redes(aria-hidden="true")
+      i.circle.fa.fa-google-plus.fa-lg.redes(aria-hidden="true")
+      i.circle.fa.fa-instagram.fa-lg.redes(aria-hidden="true")
+    div
+      ul#dropdown1.dropdown-content
+        li: a(href="#!") one
+        li: a(href="#!") two
+        li: a(href="#!") three
+      nav
+        div.nav-wrapper
+          img.brand-logo.responsive-img(src="../public/img/logo.png")
+          a.button-collapse(href="#" data-activates="mobile-demo"): i.material-icons view_headline
+          ul.right.hide-on-med-and-down
+            li: a.dropdown-button(href="../public/about.html" data-activates="dropdown1") PAGES
+              i.material-icons.right arrow_drop_down
+            li: a.dropdown-button(href="../public/blog.html" data-activates="dropdown1") BLOG
+              i.material-icons.right arrow_drop_down
+            li: a.dropdown-button(href="../public/portafolio.html" data-activates="dropdown1") PORTFOLIO
+              i.material-icons.right arrow_drop_down
+            li: a(href="../public/creative.html") $HORTCODES
+            li: i.material-icons search
+
+          ul.side-nav#mobile-demo
+            li: a.dropdown-button(href="../public/about.html") PAGES
+            li: a.dropdown-button(href="../public/blog.html") BLOG
+            li: a.dropdown-button(href="../public/portafolio.html") PORTFOLIO
+            li: a(href="../public/creative.html") $HORTCODES
+
+
+
+    block main
+
+
+
+
+
+
+
+    footer.container-fluid
+      div.row
+        div.col.s8.offset-s2.col.l8.offset-l2.footer--margen
+          img.responsive-img(src="../public/img/home/under.png")
+
+      div.row.fondo-footer
+        div.col.s5.col.l5
+          h4.center-align Testimonial
+          div.row
+            div.col.s3.offset-s2.col.l3.offset-l2
+              img.responsive-img(src="../public/img/home/profile1.png")
+            div.col.s6.col.l6
+              blockquote
+                p A pesar de los que muchos piensan, el libro no es autobiográfico, aunque podría encajar en la mayor parte de mi vida
+                footer.right-align - María Álvarez
+          div.row
+            div.col.s3.offset-s2.col.l3.offset-l2
+              img.responsive-img(src="../public/img/home/profile2.png")
+            div.col.s6.col.l6
+              blockquote
+                p A pesar de los que muchos piensan, el libro no es autobiográfico, aunque podría encajar en la mayor parte de mi vida
+                footer.right-align - María Álvarez
+
+        div.col.s2.col.l2
+          mixin lista(titulo,dato, email, phone, fax, segundoDato )
+            h4 #{titulo}
+            ul
+              li: small #{dato}
+                a #{email}
+              li: small #{phone}
+              li: small #{fax}
+              li: small #{segundoDato}
+          div.row
+            +lista( "Contact","Email:", "cirelop0@gmail.com", "Phone: +12 457898999989", "Fax: +47 555 8488888", "")
+
+          div.row
+            +lista("Address","Unit C2. st.Vincent","", "Fooder Road", "United Kingstongs", "Fooder Road")
+
+        div.col.l5.col.s5
+          h4 Send and Message
+          form.formulario(method="POST" action="formulario-contacto.php")
+            div.input-field
+              label(for="nombre") Nombre
+              input(type="text" name="nombre" required)
+
+            div.input-field
+              label(for="email") Email
+              input(type="email" name="email" required)
+
+            div.input-field
+              label(for="mensaje") Mensaje
+              textarea.materialize-textarea(name="mensaje" rows="10" length="140" required)
+
+            div
+              button.waves-effect.waves-light.btn#boton--formulario(type="submit") submit
+
+
+
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js")
+    block script
+    script(src="../public/js/app.js")
